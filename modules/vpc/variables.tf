@@ -3,12 +3,12 @@ variable "name" {
  default= "Laurentiu"
 }
 
-variable  "vpccidr" {
+variable  "Larry_vpccidr" {
  type = string
  default = "10.0.0.0/16"
 }
 
-variable  "cidrsubpub1" {
+variable  "Larry_cidrsubpub1" {
  type = string
  default = "10.0.1.0/24"
 }
@@ -38,7 +38,7 @@ variable  "AZc" {
  default = "eu-west-2c"
 }
 
-variable  "opencidr" {
+variable  "Larry_opencidr" {
  type = string
  default = "0.0.0.0/0"
 }

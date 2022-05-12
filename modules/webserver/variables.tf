@@ -13,10 +13,10 @@ variable "ssh_key" {
   default = "New-Key"
 }
 
-variable "subnet_id" {
+variable "Larry_subnet_id" {
   type = string
 }
 
-variable "vpc_security_group_id" {
+variable "Larry_vpc_security_group_id" {
   type = string
 }

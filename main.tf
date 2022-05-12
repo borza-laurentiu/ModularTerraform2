@@ -20,9 +20,9 @@ module "db" {
 module "webserver" {
   source = "./modules/webserver"
 
-  subnet_id = module.vpc.public_subnet_id    //we are getting this id from the output of the vpc module
+  Larry_subnet_id = module.vpc.Larry_public_subnet_id    //we are getting this id from the output of the vpc module
 
-  vpc_security_group_id = module.vpc.security_group_app_id    //we are getting this id value from the output of the vpc module   
+  Larry_vpc_security_group_id = module.vpc.Larry_security_group_app_id    //we are getting this id value from the output of the vpc module   
                                       //vpc_security_group_id defined here is the var you defined in webserver vars, not the array
 
 }

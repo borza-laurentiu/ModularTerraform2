@@ -1,5 +1,5 @@
 resource "aws_vpc" "mainvpc" {
-  cidr_block = var.vpccidr
+  cidr_block = var.Larry_vpccidr
   tags = {
     Name = "${var.name}.tf.vpc"
   }
@@ -14,9 +14,9 @@ resource "aws_internet_gateway" "gw" {
 }
 
 # Create public sub
-resource "aws_subnet" "subpublic" {
+resource "aws_subnet" "Larry_subpublic" {
   vpc_id     = aws_vpc.mainvpc.id
-  cidr_block = var.cidrsubpub1
+  cidr_block = var.Larry_cidrsubpub1
   availability_zone = var.AZa
   map_public_ip_on_launch = true
 
@@ -50,10 +50,10 @@ resource "aws_subnet" "subpublic" {
 # }
 
 # Creating a public route table
-resource "aws_route_table" "routepublic" {
+resource "aws_route_table" "Larry_routepublic" {
   vpc_id = aws_vpc.mainvpc.id
   route {
-    cidr_block = var.opencidr
+    cidr_block = var.Larry_opencidr
     gateway_id = aws_internet_gateway.gw.id
   }
   tags = {
@@ -85,9 +85,9 @@ resource "aws_route_table" "routepublic" {
 # }
 
 # Route table associations
-resource "aws_route_table_association" "routeapp" {
-  subnet_id = aws_subnet.subpublic.id
-  route_table_id = aws_route_table.routepublic.id
+resource "aws_route_table_association" "Larry_routeapp" {
+  subnet_id = aws_subnet.Larry_subpublic.id
+  route_table_id = aws_route_table.Larry_routepublic.id
 }
 
 # resource "aws_route_table_association" "routedb1" {
@@ -101,7 +101,7 @@ resource "aws_route_table_association" "routeapp" {
 # }
 
 # Creating security group for webapp
-resource "aws_security_group" "sgapp" {
+resource "aws_security_group" "Larry_sgapp" {
   name        = var.appsg
   description = var.appsgdesc
   vpc_id      = aws_vpc.mainvpc.id
@@ -119,7 +119,7 @@ resource "aws_security_group" "sgapp" {
    from_port = 80 
    to_port = 80 
    protocol = var.tcp
-   cidr_blocks = [var.opencidr]
+   cidr_blocks = [var.Larry_opencidr]
   }
 
   ingress {
@@ -127,7 +127,7 @@ resource "aws_security_group" "sgapp" {
    from_port = 22
    to_port = 22
    protocol = var.tcp
-   cidr_blocks = [var.opencidr]
+   cidr_blocks = [var.Larry_opencidr]
     
   }
 
@@ -135,7 +135,7 @@ resource "aws_security_group" "sgapp" {
    to_port = 0 
    from_port = 0
    protocol = -1 
-   cidr_blocks = [var.opencidr]
+   cidr_blocks = [var.Larry_opencidr]
   }
 
   tags = {

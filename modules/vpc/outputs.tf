@@ -3,12 +3,12 @@
 #     value = aws_security_group.sgdb.id
 # }
 
-output "security_group_app_id" {
-    value = aws_security_group.sgapp.id
+output "Larry_security_group_app_id" {
+    value = aws_security_group.Larry_sgapp.id
 }
 
-output "public_subnet_id" {
-    value = aws_subnet.subpublic.id
+output "Larry_public_subnet_id" {
+    value = aws_subnet.Larry_subpublic.id
 }
 
 # output "private_subnet_1" {

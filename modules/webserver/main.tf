@@ -11,9 +11,9 @@ resource "aws_instance" "webserver" {
 	instance_type = var.type
 	key_name = var.ssh_key
   
-  subnet_id = var.subnet_id
+  subnet_id = var.Larry_subnet_id
 
-  vpc_security_group_ids = [var.vpc_security_group_id] 
+  vpc_security_group_ids = [var.Larry_vpc_security_group_id] 
 	
   associate_public_ip_address = true
 
